@@ -52,7 +52,7 @@ static DEFINE_PER_CPU(struct msr_kobj_container*, msr_kobjs);
 		if(ret) \
 			return ret; \
 		\
-		if(wrmsr_safe_on_cpu(c->cpu->id, _addr, (u32) (v & 0xFFFFFFFFll), (u32) ((v & 0xFFFFFFFF00000000ll) >> 4))) { \
+		if(wrmsr_safe_on_cpu(c->cpu->id, _addr, (u32) (v & 0xFFFFFFFFll), (u32) ((v & 0xFFFFFFFF00000000ll) >> 32))) { \
 			return -EIO; \
 		} \
 		\
